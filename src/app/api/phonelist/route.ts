@@ -1,11 +1,8 @@
+import gsmarena from "gsmarena-api"
+
 export async function GET() {
-    const res = await fetch('http://localhost:3001/', {
-      headers: {
-        'Content-Type': 'application/json',
-        "Access-Control-Allow-Origin": "*"
-      },
-    })
-    const data = await res.json()
+  const devices = await gsmarena.catalog.getBrand("apple-phones-48");
+  const name = devices.map((device: any) => device.name);
    
-    return Response.json({ data })
+    return Response.json({ name })
   }
