@@ -1,4 +1,4 @@
-import React from "react";
+import { Specs } from "./Specs";
 
 const Specifications = (deviceData) => {
   return (
