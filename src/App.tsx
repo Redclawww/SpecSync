@@ -4,21 +4,24 @@ import { Home } from './screens/Home';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { About } from './screens/About';
+import { Login } from './screens/Login';
+
+// import { useEffect } from 'react';
+// import axios from 'axios';
 function App() {
 
-
-
   return (
+
     <BrowserRouter>
       <Navbar />
       <Routes>
-        
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </BrowserRouter>
+    
   )
 }
 
