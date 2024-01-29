@@ -4,8 +4,6 @@ import { Home } from './screens/Home';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { About } from './screens/About';
-import { useEffect } from 'react';
-import axios from 'axios';
 function App() {
 
 
