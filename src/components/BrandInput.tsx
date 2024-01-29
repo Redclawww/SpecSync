@@ -120,7 +120,7 @@ export default function BrandInput() {
         ))}
       </select>
       {isLoading === false ? (
-        <h1></h1>
+        <h1>no device</h1>
       ) : (
         <div>
           <label
@@ -156,6 +156,7 @@ export default function BrandInput() {
             </div>
           }
         </div>
+        
       )}
     </div>
   );
