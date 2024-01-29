@@ -8,10 +8,12 @@ import { Login } from './screens/Login';
 
 // import { useEffect } from 'react';
 // import axios from 'axios';
+import { RecoilRoot } from 'recoil';
+
 function App() {
 
   return (
-
+    <RecoilRoot>
     <BrowserRouter>
       <Navbar />
       <Routes>
@@ -21,7 +23,7 @@ function App() {
       </Routes>
       <Footer />
     </BrowserRouter>
-    
+    </RecoilRoot>
   )
 }
 

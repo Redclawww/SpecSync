@@ -1,14 +1,19 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useCallback } from "react";
-import { Input1 } from "./input1";
 import { Input2 } from "./Input2";
 import Specifications from "./Specifications";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
+import { Input1 } from "./Input1";
+import { DeviceOneState } from "../store/atoms/DeviceOne";
+import { DeviceTwoState } from "../store/atoms/DeviceTwo";
 
 
 export const DeviceInputs = () => {
-    const {deviceData1,setDeviceData1} = useRecoilState(dev)
+    const deviceData1 = useRecoilValue(DeviceOneState)
+    const deviceData2 = useRecoilValue(DeviceTwoState)
+    console.log(deviceData1,deviceData2);
+    
     const [userInput, setUserInput] = useState('')
   const [brandlist, setBrandlist] = useState([
     { name: "Amazon", id: "hello", devices: "45" },
@@ -36,7 +41,7 @@ export const DeviceInputs = () => {
   }, [getData]);
 
    async function handleSubmit(){
-    
+    setIsLoading(true);
   }
 
 
@@ -59,6 +64,9 @@ export const DeviceInputs = () => {
             title="Get quote now"
             className="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
             role="button"
+            onClick={
+                handleSubmit
+            }
           >
             Submit
           </a>
@@ -66,9 +74,9 @@ export const DeviceInputs = () => {
       </div>
       {
         isLoading===false?<div></div>:
-        <div>
-            <Specifications />
-            <Specifications />
+        <div className="flex gap-30">
+            <Specifications deviceData={deviceData1}/>
+            <Specifications deviceData={deviceData2}/>
         </div>
       }
     </div>
