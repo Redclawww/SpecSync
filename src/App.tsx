@@ -1,12 +1,13 @@
 // import { useState } from 'react'
+// import { useEffect } from 'react';
+// import axios from 'axios';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './screens/Home';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { About } from './screens/About';
 import { Login } from './screens/Login';
-// import { useEffect } from 'react';
-// import axios from 'axios';
+
 import { RecoilRoot } from 'recoil';
 
 function App() {
