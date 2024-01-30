@@ -67,7 +67,7 @@ export const Input2: React.FC<BrandProps> = ( Branditems ) => {
           }
         )
         const deviceData = response.data;
-        setDevice2(deviceData);    
+        setDevice2(deviceData);  
       }
 
   return (

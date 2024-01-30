@@ -1,5 +1,5 @@
 import BrandInput from "../components/BrandInput";
-//import { DeviceInputs } from '../components/DeviceInputs'
+import { DeviceInputs } from '../components/DeviceInputs'
 import bgi from "/Images/bgi.png";
 
 export const Home = () => {
@@ -13,9 +13,7 @@ export const Home = () => {
           COMPARE
         </h1>
         <div className="flex gap-20">
-          <BrandInput />
-          <BrandInput />
-          {/* <DeviceInputs /> */}
+          <DeviceInputs />
         </div>
       </div>
     </>

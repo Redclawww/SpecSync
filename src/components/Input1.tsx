@@ -69,10 +69,11 @@ export const Input1: React.FC<BrandProps> = ( Branditems ) => {
         )
         const deviceData = response.data;
         setDevice1(deviceData);
+        
       }
 
   return (
-    <div>
+    <div className="">
     <label
       htmlFor="countries"
       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
