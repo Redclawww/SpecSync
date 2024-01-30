@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import type { Device } from "./BrandInput";
 import { useSetRecoilState } from "recoil";
 import { DeviceTwoState } from "../store/atoms/DeviceTwo";
 type Brandlist = {

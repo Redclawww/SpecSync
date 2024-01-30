@@ -8,7 +8,6 @@ import { Input1 } from "./Input1";
 import { DeviceOneState } from "../store/atoms/DeviceOne";
 import { DeviceTwoState } from "../store/atoms/DeviceTwo";
 const url = import.meta.env.VITE_backendURI || "http://localhost:3001";
-console.log(url);
 
 export const DeviceInputs = () => {
   const deviceData1 = useRecoilValue(DeviceOneState);

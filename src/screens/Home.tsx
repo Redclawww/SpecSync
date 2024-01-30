@@ -1,4 +1,4 @@
-import BrandInput from "../components/BrandInput";
+
 import { DeviceInputs } from '../components/DeviceInputs'
 import bgi from "/Images/bgi.png";
 

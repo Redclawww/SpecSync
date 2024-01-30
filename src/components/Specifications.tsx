@@ -1,6 +1,3 @@
-import { Specs } from "./Specs";
-
-
 
 const Specifications = ({props,quickSpec}) => { 
   return (
