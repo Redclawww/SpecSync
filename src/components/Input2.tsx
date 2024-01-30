@@ -8,7 +8,7 @@ type Brandlist = {
     id: string;
     devices: string;
 }
-
+const url = import.meta.env.VITE_backendURI || "http://localhost:3001";
 type BrandProps = {
     Branditems: Brandlist[];
   };
@@ -36,7 +36,7 @@ export const Input2: React.FC<BrandProps> = ( Branditems ) => {
     async function handleOnChange(event: any) {
         const thisbrand = event.target.value;
         const response = await axios.post(
-          "http://localhost:3001/getdevicelist",
+          `${url}/getdevicelist`,
           {
             brandId: thisbrand,
           },
@@ -55,7 +55,7 @@ export const Input2: React.FC<BrandProps> = ( Branditems ) => {
  async  function handleDeviceChange(e: any) {
         const deviceId = e.target.value;
         const response = await axios.post(
-          "http://localhost:3001/devicedetails",
+          `${url}/devicedetails`,
           {
             deviceId: deviceId
           },

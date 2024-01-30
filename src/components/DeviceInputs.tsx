@@ -7,6 +7,8 @@ import { useRecoilValue } from "recoil";
 import { Input1 } from "./Input1";
 import { DeviceOneState } from "../store/atoms/DeviceOne";
 import { DeviceTwoState } from "../store/atoms/DeviceTwo";
+const url = import.meta.env.VITE_backendURI || "http://localhost:3001";
+console.log(url);
 
 export const DeviceInputs = () => {
   const deviceData1 = useRecoilValue(DeviceOneState);
@@ -21,7 +23,7 @@ export const DeviceInputs = () => {
 
   const getData = useCallback(async () => {
     try {
-      const res = await axios.get("http://localhost:3001/brandlist", {
+      const res = await axios.get(`${url}/brandlist`, {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Content-Type": "application/json",
@@ -39,9 +41,9 @@ export const DeviceInputs = () => {
   }, [getData]);
 
   async function handleSubmit() {
-    setIsLoading(true);
+    
     try {
-      const res = await axios.post("http://localhost:3001/compare",{
+      const res = await axios.post(`${url}/compare`,{
         userInput: userInput,
         device1: deviceData1,
         device2: deviceData2
@@ -52,6 +54,7 @@ export const DeviceInputs = () => {
         },
       });
       const AIfeedback = await res.data;
+      setIsLoading(true);
       setFinalVerdict(AIfeedback);
       
     } catch (error) {
