@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import { DeviceOneState } from "../store/atoms/DeviceOne";
+
 type Brandlist = {
     name: string;
     id: string;
@@ -72,7 +73,7 @@ export const Input1: React.FC<BrandProps> = ( Branditems ) => {
       }
 
   return (
-    <div className="">
+    <div >
     <label
       htmlFor="countries"
       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -83,7 +84,7 @@ export const Input1: React.FC<BrandProps> = ( Branditems ) => {
       onChange={handleOnChange}
       value={"none"}
       id="countries"
-      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block py-5 px-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-[300px]"
     >
       <option value={"none"}>Select brand</option>
       {Branditems && Branditems.brandlist.map((brand: any) => (
@@ -93,9 +94,9 @@ export const Input1: React.FC<BrandProps> = ( Branditems ) => {
       ))}
     </select>
     {isLoading === false ? (
-      <h1>no device</h1>
+      <h1></h1>
     ) : (
-      <div>
+      <div className="py-5">
         <label
           htmlFor="countries"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -106,7 +107,7 @@ export const Input1: React.FC<BrandProps> = ( Branditems ) => {
           onChange={handleDeviceChange}
           value={"none"}
           id="countries"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block w-[300px] py-5 px-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
         >
           {devices.map((device: Device) => (
             <option value={device.id}>{device.name}</option>

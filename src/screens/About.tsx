@@ -12,7 +12,7 @@ export const About = () => {
           className="h-screen w-screen bg-cover bg-center "
           style={{ backgroundImage: `url(${ip})` }}
         >
-          <div className=" ">
+          <div className="">
             <h1 className="text-7xl flex flex-col pt-52 text-left pl-36 font-mono font-bold text-rose-950 ">
               About Us
             </h1>
