@@ -15,7 +15,7 @@ export const Login = () => {
     </div>
 
   
-    <GoogleLogin
+    {/* <GoogleLogin
         onSuccess={(credentialResponse) => {
           if (credentialResponse?.credential) {
             const decoded = jwtDecode(credentialResponse.credential);
@@ -27,7 +27,7 @@ export const Login = () => {
         onError={() => {
           console.log('Login Failed');
         }}
-      />
+      /> */}
     
     </>
   )

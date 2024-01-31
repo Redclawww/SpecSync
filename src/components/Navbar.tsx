@@ -8,7 +8,7 @@ export const Navbar = () => {
       <div className=" border border-gray-200 rounded-[25px] flex justify-center gap-20 py-3 px-7 text-lg font-semibold">
       <Link to={'/about'}>About</Link>
       <Link to={'/login'}>Login/Signup</Link>
-      </div>   
+    </div>   
     </div> 
     </>
     
