@@ -7,6 +7,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { About } from './screens/About';
 import { Login } from './screens/Login';
+import { History } from './screens/History';
 
 import { RecoilRoot } from 'recoil';
 
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/history" element={<History />} />
         <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />

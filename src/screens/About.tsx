@@ -7,16 +7,13 @@ export const About = () => {
   return (
     <>
       {" "}
-      <div className="bg-[#C2C2C4]">
-        <div
-          className="h-screen w-screen bg-cover bg-center "
-          style={{ backgroundImage: `url(${ip})` }}
-        >
+      <div className="bg-[#C2C2C4] w-screen">
+        <div className="h-screen w-screen bg-cover bg-center">
           <div className="">
-            <h1 className="text-7xl flex flex-col pt-52 text-left pl-36 font-mono font-bold text-rose-950 ">
+            <h1 className="text-7xl flex flex-col pt-52 text-left pl-36 font-mono font-bold text-black">
               About Us
             </h1>
-            <p className="text-rose-950  font-mono pl-32 font-semibold pt-8 leading-relaxed">
+            <p className="text-black font-mono pl-32 font-semibold pt-8 leading-relaxed">
               SpecSync is your Personal Phone Matchmaker!
               <br /> Discover the perfect mobile phone tailored to
               <br /> your preferences and needs.
@@ -24,10 +21,26 @@ export const About = () => {
               just a sync away!
             </p>
           </div>
+          <div
+            className="h-screen w-screen bg-cover bg-center"
+            style={{ backgroundImage: `url(${ip})` }}
+          ></div>
+
+          <div className="bg-black w-screen h-screen">
+            <p className="text-white text-6xl font-semibold text-center p-32">
+              Discover a new era in mobile phone selection with SpecSync. Our
+              advanced platform streamlines comparisons by tailoring
+              recommendations to your preferences, budget, and needs. Say
+              goodbye to confusion and hello to effortless decision-making.
+              Experience the future of phone selection with SpecSync today.
+            </p>
+          </div>
         </div>
+        <div className="h-96"></div>
+        <div className="h-screen"></div>
         <div className="h-screen w-screen flex justify-center ">
           <video
-            className="mt-20 h-96 mr-7 flex "
+            className="mt-20 h-96 mr-7 flex"
             muted
             autoPlay
             loop
@@ -43,7 +56,9 @@ export const About = () => {
           <h1 className="text-6xl font-bold text-[#0884FB] text-center py-10">
             Smart Recommendations
           </h1>
-          <h1 className="text-6xl font-bold text-black text-end pr-44">Latest Updates</h1>
+          <h1 className="text-6xl font-bold text-black text-end pr-44">
+            Latest Updates
+          </h1>
         </div>
       </div>
     </>

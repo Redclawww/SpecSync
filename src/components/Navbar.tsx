@@ -13,6 +13,7 @@ export const Navbar = () => {
           <Link to={"/"}>SpecSync</Link>
           <div className=" border border-gray-200 rounded-[25px] flex justify-center gap-2 py-3 px-7 text-lg font-semibold">
             <Link to={"/about"}>Hi!</Link>
+            <Link to={"/history"}></Link>
             <Link to={"/login"} className="font-bold">
               {userEmail}
             </Link>
@@ -27,6 +28,7 @@ export const Navbar = () => {
           <Link to={"/"}>SpecSync</Link>
           <div className=" border border-gray-200 rounded-[25px] flex justify-center gap-20 py-3 px-7 text-lg font-semibold">
             <Link to={"/about"}>About</Link>
+            <Link to={"/history"}>History</Link>
             <Link to={"/login"}>Login/Signup</Link>
           </div>
         </div>
