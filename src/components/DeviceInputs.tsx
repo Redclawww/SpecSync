@@ -7,12 +7,13 @@ import { useRecoilValue } from "recoil";
 import { Input1 } from "./Input1";
 import { DeviceOneState } from "../store/atoms/DeviceOne";
 import { DeviceTwoState } from "../store/atoms/DeviceTwo";
+import Save from "../store/icons/Save";
 const url = import.meta.env.VITE_backendURI || "http://localhost:3001";
 
 export const DeviceInputs = () => {
   const deviceData1 = useRecoilValue(DeviceOneState);
   const deviceData2 = useRecoilValue(DeviceTwoState);
-  const [finalVerdict,setFinalVerdict]=useState('');
+  const [finalVerdict, setFinalVerdict] = useState("");
   const [userInput, setUserInput] = useState("");
   const [brandlist, setBrandlist] = useState([
     { name: "Amazon", id: "hello", devices: "45" },
@@ -40,25 +41,51 @@ export const DeviceInputs = () => {
   }, [getData]);
 
   async function handleSubmit() {
-    
     try {
-      const res = await axios.post(`${url}/compare`,{
-        userInput: userInput,
-        device1: deviceData1,
-        device2: deviceData2
-      }, {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
+      const res = await axios.post(
+        `${url}/compare`,
+        {
+          userInput: userInput,
+          device1: deviceData1,
+          device2: deviceData2,
         },
-      });
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const AIfeedback = await res.data;
       setIsLoading(true);
       setFinalVerdict(AIfeedback);
-      
     } catch (error) {
       alert("Please try again some time later");
     }
+  }
+
+  function handleSave() {
+    console.log(userInput);
+    console.log(deviceData1);
+    //console.log(deviceData1.name);
+    console.log(deviceData2);
+    //console.log(deviceData2.name);
+    console.log(finalVerdict);
+    axios
+      .post(`http://localhost:3001/save`, {
+        userInput: userInput,
+        device1: deviceData1.name,
+        device2: deviceData2.name,
+        finalVerdict: finalVerdict,
+      })
+      .then((res) => {
+        // Handle response
+        console.log(res);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error(error);
+      });
   }
 
   return (
@@ -101,16 +128,24 @@ export const DeviceInputs = () => {
       ) : (
         <div className="flex gap-32 flex-col items-center ">
           <div className="flex gap-32 justify-center">
-          <Specifications props={deviceData1}  quickSpec={deviceData1.quickSpec} />
-          <Specifications props={deviceData2} quickSpec={deviceData1.quickSpec} />
+            <Specifications
+              props={deviceData1}
+              quickSpec={deviceData1.quickSpec}
+            />
+            <Specifications
+              props={deviceData2}
+              quickSpec={deviceData1.quickSpec}
+            />
           </div>
           <div className="bg-black rounded-2xl border border-gray-400 p-10 text-white w-3/4 ">
             <h1 className="text-3xl text-center pb-14">The Final Verdit 🥳</h1>
-            <p>
-              {
-              finalVerdict
-              }
-            </p>
+            <p>{finalVerdict}</p>
+          </div>
+          <div className="text-white flex mb-15 gap-3 ">
+            <div className="">Wanna Save??</div>
+            <div className="hover:cursor-pointer" onClick={handleSave}>
+              <Save />
+            </div>
           </div>
         </div>
       )}
