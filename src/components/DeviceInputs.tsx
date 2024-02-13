@@ -8,9 +8,13 @@ import { Input1 } from "./Input1";
 import { DeviceOneState } from "../store/atoms/DeviceOne";
 import { DeviceTwoState } from "../store/atoms/DeviceTwo";
 import Save from "../store/icons/Save";
+import { userEmailState } from "../store/selectors/userEmail";
 const url = import.meta.env.VITE_backendURI || "http://localhost:3001";
 
 export const DeviceInputs = () => {
+  const userEmail = useRecoilValue(userEmailState);
+  console.log("Email ON Home");
+  console.log(userEmail);
   const deviceData1 = useRecoilValue(DeviceOneState);
   const deviceData2 = useRecoilValue(DeviceTwoState);
   const [finalVerdict, setFinalVerdict] = useState("");
@@ -33,7 +37,7 @@ export const DeviceInputs = () => {
       setBrandlist(branddata);
     } catch (error) {
       // alert("Please try again some time later");
-      console.log("error:",error);  
+      console.log("error:", error);
     }
   }, []);
 
@@ -74,6 +78,7 @@ export const DeviceInputs = () => {
     console.log(finalVerdict);
     axios
       .post(`http://localhost:3001/save`, {
+        email: userEmail,
         userInput: userInput,
         device1: deviceData1.name,
         device2: deviceData2.name,

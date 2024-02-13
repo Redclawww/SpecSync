@@ -9,9 +9,17 @@ export const Navbar = () => {
   if (userEmail) {
     return (
       <>
-        <div className="absolute flex justify-around text-white text-3xl w-screen pt-4 pb-4 ">
-          <Link to={"/"}>
-          <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="SpecSync Logo" />SpecSync</Link>
+        <div className="absolute flex justify-around text-white text-3xl w-screen pt-4 pb-4 items-center">
+          <div className="flex items-center">
+            <Link to={"/"}>
+              <img
+                src="https://flowbite.com/docs/images/logo.svg"
+                className="h-8"
+                alt="SpecSync Logo"
+              />
+              SpecSync
+            </Link>
+          </div>
           <div className=" border border-gray-200 rounded-[25px] flex justify-center gap-5 py-3 px-7 text-lg font-semibold">
             <Link to={"/about"}>About</Link>
             <Link to={"/history"}>History</Link>
@@ -28,8 +36,13 @@ export const Navbar = () => {
       <>
         <div className="absolute flex justify-around text-white text-3xl w-screen pt-4 pb-4 ">
           <Link to={"/"} className="flex justify-center items-center gap-5">
-          <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="SpecSync Logo" /> 
-            SpecSync</Link>
+            <img
+              src="https://flowbite.com/docs/images/logo.svg"
+              className="h-8"
+              alt="SpecSync Logo"
+            />
+            SpecSync
+          </Link>
           <div className=" border border-gray-200 rounded-[25px] flex justify-center gap-20 py-3 px-7 text-lg font-semibold">
             <Link to={"/about"}>About</Link>
             {/* <Link to={"/history"}>History</Link> */}
