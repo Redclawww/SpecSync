@@ -32,7 +32,8 @@ export const DeviceInputs = () => {
       const branddata = await res.data;
       setBrandlist(branddata);
     } catch (error) {
-      alert("Please try again some time later");
+      // alert("Please try again some time later");
+      console.log("error:",error);  
     }
   }, []);
 
@@ -134,7 +135,7 @@ export const DeviceInputs = () => {
             />
             <Specifications
               props={deviceData2}
-              quickSpec={deviceData1.quickSpec}
+              quickSpec={deviceData2.quickSpec}
             />
           </div>
           <div className="bg-black rounded-2xl border border-gray-400 p-10 text-white w-3/4 ">
