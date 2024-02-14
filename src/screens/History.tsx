@@ -45,8 +45,13 @@ export const History = () => {
             <h1 className="text-3xl p-28 font-semibold text-white">
               Recently Viewed
             </h1>
-            {/* <div className="border border-gray-200 rounded-lg gap-2 px-52 pl-44 shadow-lg shadow-cyan "></div> */}
-            {/* <div className="Bg-white text-black"></div> */}
+            <div className=" flex justify-center gap-7">
+              <div className="border border-4 border-[#4936D8] rounded-lg py-52 w-96 transition ease-in-out delay-150 bg-[#4936D8] hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100 "></div>
+              <div className="border border-4 border-[#4936D8] rounded-lg py-52 w-96 transition ease-in-out delay-150 bg-[#4936D8] hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100"></div>
+              <div className="border border-4 border-[#4936D8] rounded-lg py-52 w-96 transition ease-in-out delay-150 bg-[#4936D8] hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100"></div>
+              {/* <div className="border border-gray-200 rounded-lg py-52 w-96 "></div> */}
+            </div>
+            <div className="Bg-white text-black"></div>
             {data.map((item, index) => (
               <div
                 key={index}
