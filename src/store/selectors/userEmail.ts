@@ -5,7 +5,10 @@ export const userEmailState = selector({
   key: "userEmailState",
   get: ({ get }) => {
     const state = get(userState);
-
     return state.userEmail;
   },
+  // set: ({set}) =>{
+  //   const state = set(userState);
+  //   state.userEmail=
+  // }
 });

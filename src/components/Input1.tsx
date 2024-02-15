@@ -4,15 +4,15 @@ import { useSetRecoilState } from "recoil";
 import { DeviceOneState } from "../store/atoms/DeviceOne";
 
 type Brandlist = {
-    name: string;
-    id: string;
-    devices: string;
-}
-const url = import.meta.env.VITE_backendURI || "http://localhost:3001";
+  name: string;
+  id: string;
+  devices: string;
+};
+const url = "http://localhost:3001";
 type BrandProps = {
-    Branditems: Brandlist[];
-  };
-export const Input1: React.FC<BrandProps> = ( Branditems ) => {
+  Branditems: Brandlist[];
+};
+export const Input1: React.FC<BrandProps> = (Branditems) => {
   // console.log("Branditems", Branditems);
   const setDevice1 = useSetRecoilState(DeviceOneState);
   const [devices, setDevices] = useState([
@@ -33,98 +33,93 @@ export const Input1: React.FC<BrandProps> = ( Branditems ) => {
   ]);
   const [isLoading, isSetLoading] = useState(false);
 
-
-    async function handleOnChange(event: any) {
-        const thisbrand = event.target.value;
-        const response = await axios.post(
-          `${url}/getdevicelist`,
-          {
-            brandId: thisbrand,
-          },
-          {
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const finaldevice = response.data;
-        setDevices(finaldevice);
-        isSetLoading(true);
+  async function handleOnChange(event: any) {
+    const thisbrand = event.target.value;
+    console.log(thisbrand);
+    
+    const response = await axios.post(
+      `${url}/getdevicelist`,
+      {
+        brandId: thisbrand,
+      },
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
       }
+    );
+    const finaldevice = response.data;
+    setDevices(finaldevice);
+    console.log(finaldevice);
+    
+    isSetLoading(true);
+  }
 
- async  function handleDeviceChange(e: any) {
-        const deviceId = e.target.value;
-        const response = await axios.post(
-          `${url}/devicedetails`,
-          {
-            deviceId: deviceId
-          },
-          {
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        const deviceData = response.data;
-        setDevice1(deviceData);
-        
+  async function handleDeviceChange(e: any) {
+    const deviceId = e.target.value;
+    const response = await axios.post(
+      `${url}/devicedetails`,
+      {
+        deviceId: deviceId,
+      },
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
       }
+    );
+    const deviceData = response.data;
+    setDevice1(deviceData);
+  }
 
   return (
-    <div >
-    <label
-      htmlFor="countries"
-      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-    >
-      Brands
-    </label>
-    <select
-      onChange={handleOnChange}
-      value={"none"}
-      id="countries"
-      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block py-5 px-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-[300px]"
-    >
-      <option value={"none"}>Select brand</option>
-      {Branditems && Branditems.brandlist.map((brand: any) => (
-        <option key={brand.id} value={brand.id}>
-          {brand.name}
+    <div>
+      <label
+        htmlFor="brand1"
+        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >
+        Brands
+      </label>
+      <select
+        onChange={handleOnChange}
+        value={"none"}
+        id="countries"
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block py-5 px-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-[300px]"
+      >
+        <option value={"none"} selected>
+          Select brand
         </option>
-      ))}
-    </select>
-    {isLoading === false ? (
-      <h1></h1>
-    ) : (
-      <div className="py-5">
-        <label
-          htmlFor="countries"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
-          Device
-        </label>
-        <select
-          onChange={handleDeviceChange}
-          value={"none"}
-          id="countries"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block w-[300px] py-5 px-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-        >
-          {devices.map((device: Device) => (
-            <option value={device.id}>{device.name}</option>
+        {Branditems &&
+          Branditems.brandlist.map((brand: any) => (
+            <option key={brand.id} value={brand.id}>
+              {brand.name}
+            </option>
           ))}
-        </select>
-        {/* {
-          deviceData===null?<div></div>:<div className="flex flex-col gap-6">
-            <h1 className="text-white text-3xl">{deviceData.name}</h1>
-            <img src={deviceData.img} alt="" className="rounded-xl " />
-            <DeviceSpecs detailSpec={deviceData.detailSpec} /> 
-          <Specs specs={deviceData.quickSpec} />
-          <button className="px-5 py-5 bg-black text-white rounded-2xl hover:scale-105 transition-all" ><strong>Show Detailed Specifications</strong></button>
-          </div>
-        } */}
-      </div>
-      
-    )}
-  </div>
-  )
-}
+      </select>
+      {isLoading === false ? (
+        <h1></h1>
+      ) : (
+        <div className="py-5">
+          <label
+            htmlFor="countries"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Device
+          </label>
+          <select
+            onChange={handleDeviceChange}
+            value={"none"}
+            id="countries"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block w-[300px] py-5 px-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+          >
+            {devices.map((device: any) => (
+              <option value={device.id}>{device.name}</option>
+            ))}
+          </select>
+        </div>
+      )}
+    </div>
+  );
+};

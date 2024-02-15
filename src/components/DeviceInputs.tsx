@@ -9,7 +9,7 @@ import { DeviceOneState } from "../store/atoms/DeviceOne";
 import { DeviceTwoState } from "../store/atoms/DeviceTwo";
 import Save from "../store/icons/Save";
 import { userEmailState } from "../store/selectors/userEmail";
-const url = import.meta.env.VITE_backendURI || "http://localhost:3001";
+const url = "http://localhost:3001";
 
 export const DeviceInputs = () => {
   const userEmail = useRecoilValue(userEmailState);

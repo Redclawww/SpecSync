@@ -23,7 +23,8 @@ export const Login = () => {
                 const email = decoded.email;
                 const name = decoded.given_name;
                 setUser({ userEmail: email, name: name });
-
+                localStorage.setItem("name",name);
+                localStorage.setItem("email",email);
                 console.log(email, name);
                 fetch("http://localhost:3001/auth", {
                   method: "POST",
@@ -39,6 +40,7 @@ export const Login = () => {
                     console.log("Data sent successfully");
                     // Handle success as needed
                     navigate("/");
+                    
                   })
                   .catch((error) => {
                     console.error("Error sending data to server:", error);

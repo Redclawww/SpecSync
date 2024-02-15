@@ -7,7 +7,7 @@ type Brandlist = {
     id: string;
     devices: string;
 }
-const url = import.meta.env.VITE_backendURI || "http://localhost:3001";
+const url = "http://localhost:3001";
 type BrandProps = {
     Branditems: Brandlist[];
   };
