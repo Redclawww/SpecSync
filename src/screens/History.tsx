@@ -21,7 +21,12 @@ export const History = () => {
   //   }
   const fetchData = () => {
     axios
-      .get(`${url}/data/${userEmail}`)
+      .get(`${url}/data/${userEmail}`,{
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      })
       .then((response) => {
         setData(response.data);
         console.log(response.data);
