@@ -4,6 +4,8 @@ import { jwtDecode } from "jwt-decode";
 import { useSetRecoilState } from "recoil";
 import { userState } from "../store/atoms/User";
 import { useNavigate } from "react-router-dom";
+const url = import.meta.env.VITE_backendURI;
+
 
 export const Login = () => {
   const setUser = useSetRecoilState(userState);
@@ -27,7 +29,7 @@ export const Login = () => {
                 localStorage.setItem("name",name);
                 localStorage.setItem("email",email);
                 console.log(email, name);
-                fetch("http://localhost:3001/auth", {
+                fetch(`${url}/auth`, {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",

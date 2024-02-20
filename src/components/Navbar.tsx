@@ -19,7 +19,7 @@ export const Navbar = () => {
     localStorage.setItem("email",'');
     navigate('/');
   }
-  if (userEmail!='') {
+  if (userEmail!=='') {
     return (
       <>
         <div className="absolute flex justify-around text-white text-3xl w-screen pt-4 pb-4 items-center">
