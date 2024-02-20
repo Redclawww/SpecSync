@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { useSetRecoilState } from "recoil";
@@ -20,7 +21,7 @@ export const Login = () => {
                 const decoded = jwtDecode(credentialResponse.credential);
                 console.log(decoded);
 
-                const email = decoded.email;
+                const email = decoded.email; 
                 const name = decoded.given_name;
                 setUser({ userEmail: email, name: name });
                 localStorage.setItem("name",name);

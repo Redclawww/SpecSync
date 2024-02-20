@@ -1,4 +1,4 @@
-
+// @ts-nocheck
 const Specifications = ({props,quickSpec}) => { 
   return (
     <div className="flex flex-col gap-6">

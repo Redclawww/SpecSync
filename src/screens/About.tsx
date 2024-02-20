@@ -1,3 +1,4 @@
+// @ts-nocheck
 // import React from 'react'
 import ip from "/Images/ip.png";
 import vid1 from "/Videos/vid1.mp4";

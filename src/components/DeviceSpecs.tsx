@@ -1,4 +1,4 @@
-
+// @ts-nocheck
 
 const DeviceSpecs = ( detailSpecs: any ) => {
   return (

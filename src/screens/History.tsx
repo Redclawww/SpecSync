@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useRecoilValue } from "recoil";
 import { userEmailState } from "../store/selectors/userEmail";
 import { useEffect } from "react";

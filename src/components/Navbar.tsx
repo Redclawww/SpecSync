@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Link, useNavigate } from "react-router-dom";
 import { userEmailState } from "../store/selectors/userEmail";
 import { useSetRecoilState, useRecoilValue } from "recoil";

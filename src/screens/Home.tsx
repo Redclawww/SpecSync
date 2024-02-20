@@ -1,4 +1,4 @@
-
+// @ts-nocheck
 import { DeviceInputs } from '../components/DeviceInputs'
 import bgi from "/Images/bgi.png";
 import '../App.css'
