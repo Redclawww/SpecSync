@@ -9,7 +9,7 @@ import { DeviceOneState } from "../store/atoms/DeviceOne";
 import { DeviceTwoState } from "../store/atoms/DeviceTwo";
 import Save from "../store/icons/Save";
 import { userEmailState } from "../store/selectors/userEmail";
-const url = "http://localhost:3001";
+const url = import.meta.env.VITE_backendURI;
 
 export const DeviceInputs = () => {
   const userEmail = useRecoilValue(userEmailState);
@@ -69,15 +69,9 @@ export const DeviceInputs = () => {
     }
   }
 
-  function handleSave() {
-    console.log(userInput);
-    console.log(deviceData1);
-    //console.log(deviceData1.name);
-    console.log(deviceData2);
-    //console.log(deviceData2.name);
-    console.log(finalVerdict);
-    axios
-      .post(`http://localhost:3001/save`, {
+  async function handleSave() {
+    await axios
+      .post(`${url}/save`, {
         email: userEmail,
         userInput: userInput,
         device1: deviceData1.name,
@@ -85,7 +79,6 @@ export const DeviceInputs = () => {
         finalVerdict: finalVerdict,
       })
       .then((res) => {
-        // Handle response
         console.log(res);
       })
       .catch((error) => {
@@ -147,7 +140,7 @@ export const DeviceInputs = () => {
             <h1 className="text-3xl text-center pb-14">The Final Verdit 🥳</h1>
             <p>{finalVerdict}</p>
           </div>
-          <div className="text-white flex mb-15 gap-3 ">
+          <div className="text-white flex mb-15 gap-3 bg-black p-3 rounded-2xl hover:scale-110 ease-in-out transition-all">
             <div className="">Wanna Save??</div>
             <div className="hover:cursor-pointer" onClick={handleSave}>
               <Save />

@@ -7,7 +7,7 @@ type Brandlist = {
     id: string;
     devices: string;
 }
-const url = "http://localhost:3001";
+const url = import.meta.env.VITE_backendURI;
 type BrandProps = {
     Branditems: Brandlist[];
   };
@@ -104,6 +104,7 @@ export const Input2: React.FC<BrandProps> = ( Branditems ) => {
           onChange={handleDeviceChange}
           value={"none"}
           id="countries"
+          defaultValue={'Brand'}
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block w-[300px] py-5 px-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
         >
           {devices.map((device: Device) => (

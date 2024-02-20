@@ -3,7 +3,7 @@
 const DeviceSpecs = ( detailSpecs: any ) => {
   return (
     <ul>
-      {detailSpec.map((categorySpec, index) => (
+      {/* {detailSpec.map((categorySpec, index) => (
         <li key={index}>
           <h3>{categorySpec.category}</h3>
           <ul>
@@ -14,7 +14,7 @@ const DeviceSpecs = ( detailSpecs: any ) => {
             ))}
           </ul>
         </li>
-      ))}
+      ))} */}
     </ul>
   );
 };

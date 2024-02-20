@@ -3,6 +3,7 @@ import { userEmailState } from "../store/selectors/userEmail";
 import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
+const url = import.meta.env.VITE_backendURI;
 
 export const History = () => {
   const userEmail = useRecoilValue(userEmailState);
@@ -19,7 +20,7 @@ export const History = () => {
   //   }
   const fetchData = () => {
     axios
-      .get(`http://localhost:3001/data/${userEmail}`)
+      .get(`${url}/data/${userEmail}`)
       .then((response) => {
         setData(response.data);
         console.log(response.data);
@@ -46,21 +47,17 @@ export const History = () => {
               Recently Viewed
             </h1>
             <div className=" flex justify-center gap-7">
-              <div className="border border-4 border-[#4936D8] rounded-lg py-52 w-96 transition ease-in-out delay-150 bg-[#4936D8] hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100 "></div>
-              <div className="border border-4 border-[#4936D8] rounded-lg py-52 w-96 transition ease-in-out delay-150 bg-[#4936D8] hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100"></div>
-              <div className="border border-4 border-[#4936D8] rounded-lg py-52 w-96 transition ease-in-out delay-150 bg-[#4936D8] hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100"></div>
+             
               {/* <div className="border border-gray-200 rounded-lg py-52 w-96 "></div> */}
-            </div>
+            
             <div className="Bg-white text-black"></div>
-            {data.map((item, index) => (
-              <div
-                key={index}
-                className="text-black bg-white m-2 text-center border rounded-lg"
-              >
+            {data.map((item, index) => (              
+                <div className="border-4 border-[#4936D8] rounded-lg py-52 w-96 transition ease-in-out delay-150 bg-[#4936D8] hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100 flex flex-col" key={index}>
                 <div>First Device: {item.device1}</div>
-                <div> Second Device: {item.device2} </div>
-              </div>
+                <div>Second Device: {item.device2} </div>
+                </div>
             ))}
+            </div>
           </div>
         </div>
       </div>
