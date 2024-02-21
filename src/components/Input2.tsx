@@ -14,6 +14,8 @@ type BrandProps = {
   };
 export const Input2: React.FC<BrandProps> = ( Branditems ) => {
   const setDevice2 = useSetRecoilState(DeviceTwoState);
+  const [Device,setDevice ]=useState('');
+  const [brand,setBrand ]=useState('')
   const [devices, setDevices] = useState([
     {
       id: "apple_ipad_mini_(2021)-11105",
@@ -35,6 +37,7 @@ export const Input2: React.FC<BrandProps> = ( Branditems ) => {
 
     async function handleOnChange(event: any) {
         const thisbrand = event.target.value;
+        setBrand(thisbrand);
         const response = await axios.post(
           `${url}/getdevicelist`,
           {
@@ -54,6 +57,7 @@ export const Input2: React.FC<BrandProps> = ( Branditems ) => {
 
  async  function handleDeviceChange(e: any) {
         const deviceId = e.target.value;
+        setDevice(deviceId);
         const response = await axios.post(
           `${url}/devicedetails`,
           {
@@ -80,7 +84,7 @@ export const Input2: React.FC<BrandProps> = ( Branditems ) => {
     </label>
     <select
       onChange={handleOnChange}
-      value={"none"}
+      value={brand}
       id="countries"
       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block w-[300px] py-5 px-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
     >
@@ -103,7 +107,7 @@ export const Input2: React.FC<BrandProps> = ( Branditems ) => {
         </label>
         <select
           onChange={handleDeviceChange}
-          value={"none"}
+          value={Device}
           id="countries"
           defaultValue={'Brand'}
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block w-[300px] py-5 px-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "

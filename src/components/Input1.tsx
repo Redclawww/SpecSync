@@ -16,6 +16,8 @@ type BrandProps = {
 };
 export const Input1: React.FC<BrandProps> = (Branditems) => {
   // console.log("Branditems", Branditems);
+  const [brand,setBrand ]=useState('')
+  const [Device,setDevice ]=useState('');
   const setDevice1 = useSetRecoilState(DeviceOneState);
   const [devices, setDevices] = useState([
     {
@@ -37,7 +39,7 @@ export const Input1: React.FC<BrandProps> = (Branditems) => {
 
   async function handleOnChange(event: any) {
     const thisbrand = event.target.value;
-    console.log(thisbrand);
+    setBrand(thisbrand);
     
     const response = await axios.post(
       `${url}/getdevicelist`,
@@ -60,6 +62,7 @@ export const Input1: React.FC<BrandProps> = (Branditems) => {
 
   async function handleDeviceChange(e: any) {
     const deviceId = e.target.value;
+    setDevice(deviceId);
     const response = await axios.post(
       `${url}/devicedetails`,
       {
@@ -86,11 +89,11 @@ export const Input1: React.FC<BrandProps> = (Branditems) => {
       </label>
       <select
         onChange={handleOnChange}
-        value={"none"}
+        value={brand}
         id="countries"
         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block py-5 px-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-[300px]"
       >
-        <option value={"none"} defaultValue={'Brand'}>
+        <option value={"none"} >
           Select brand
         </option>
         {Branditems &&
@@ -112,7 +115,7 @@ export const Input1: React.FC<BrandProps> = (Branditems) => {
           </label>
           <select
             onChange={handleDeviceChange}
-            value={"none"}
+            value={Device}
             id="countries"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block w-[300px] py-5 px-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
           >
