@@ -5,8 +5,6 @@ import "../App.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
-import bgAnimation from "../components/bgAnimation";
-
 
 Aos.init({
   duration: 1000,

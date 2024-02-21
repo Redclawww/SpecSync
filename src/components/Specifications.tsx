@@ -14,7 +14,7 @@ const Specifications = ({props,quickSpec}) => {
       </ul>
     </div>
       <button className="px-5 py-5 bg-black text-white rounded-2xl hover:scale-105 transition-all">
-        <strong className=" p-5 rounded-2xl border">Show Detailed Specifications</strong>
+        <strong className="p-5 rounded-2xl border">Show Detailed Specifications</strong>
       </button>
     </div>
   );

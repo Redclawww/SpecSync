@@ -21,8 +21,6 @@ export const Login = () => {
             onSuccess={(credentialResponse) => {
               if (credentialResponse?.credential) {
                 const decoded = jwtDecode(credentialResponse.credential);
-                console.log(decoded);
-
                 const email = decoded.email; 
                 const name = decoded.given_name;
                 setUser({ userEmail: email, name: name });
@@ -40,10 +38,6 @@ export const Login = () => {
                     if (!response.ok) {
                       throw new Error("Failed to send data to server");
                     }
-                    console.log("Data sent successfully");
-                    // Handle success as needed
-                    navigate("/");
-                    
                   })
                   .catch((error) => {
                     console.error("Error sending data to server:", error);
@@ -51,7 +45,7 @@ export const Login = () => {
                   });
               } else {
                 console.error("Credential is undefined");
-              }
+              } navigate('/');
             }}
             onError={() => {
               console.log("Login Failed");

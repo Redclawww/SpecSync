@@ -33,8 +33,6 @@ export const Input2: React.FC<BrandProps> = ( Branditems ) => {
     },
   ]);
   const [isLoading, isSetLoading] = useState(false);
-
-
     async function handleOnChange(event: any) {
         const thisbrand = event.target.value;
         setBrand(thisbrand);
