@@ -2,6 +2,7 @@
 import { DeviceInputs } from "../components/DeviceInputs";
 import bgi from "/Images/bgi.png";
 import "../App.css";
+import { useRef } from 'react';
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
@@ -12,6 +13,12 @@ Aos.init({
 });
 
 export const Home = () => {
+  const myDivRef = useRef(null);
+  const scrollToDiv = () => {
+    myDivRef.current.scrollIntoView({
+      behavior: 'smooth',
+    });
+  };
   return (
     <>
       <div className="w-screen h-screen  flex justify-center items-center text-white ">
@@ -45,25 +52,27 @@ export const Home = () => {
             performance, and more
           </h2>
           <div className="flex justify-center gap-12 flex-wrap "  data-aos='fade-up'>
-            <button className="border-white border w-fit text-white px-5 py-3 hover:scale-110 transition-all">
+            <button className="border-white border w-fit text-white px-5 py-3 hover:scale-110 transition-all" 
+            onClick={scrollToDiv}
+            >
               Compare
             </button>
             <button className="bg-white border w-fit text-black px-5 py-3 hover:scale-110 transition-all">
               <Link to='/about'>Learn More</Link>
-             
             </button>
           </div>
         </div>
       </div>
       <div
-        className="flex flex-col items-center w-screen overscroll-none p-12 justify-start bg-black css-selector"  
+        className="flex flex-col items-center w-screen overscroll-none p-12 justify-start bg-black css-selector" 
+        ref={myDivRef}  
       >
         {/* <div className="wrapper">
           <div className="gradient gradient-1"></div>
           <div className="gradient gradient-2"></div>
           <div className="gradient gradient-3"></div>
         </div> */}
-        <h1 className="text-[6vh] font-semibold text-white flex flex-col text-center p-5 w-full my-10">
+        <h1 className="text-[6vh] font-semibold text-white flex flex-col text-center p-5 w-full my-10" >
           <strong className="text-[10vh] text-[#0886FC]">COMPARE & FIND</strong>  <br />the best choice now
         </h1>
         <div className="flex gap-20 front p-10">
