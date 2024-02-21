@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { useRecoilValue } from "recoil";
 import { userEmailState } from "../store/selectors/userEmail";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 const url = import.meta.env.VITE_backendURI;
@@ -19,7 +19,7 @@ export const History = () => {
   //   } catch (error) {
   //     console.error("Error fetching data:", error);
   //   }
-  const fetchData = () => {
+  const fetchData = useCallback(async()=>{
     axios
       .get(`${url}/data/${userEmail}`,{
         headers: {
@@ -33,11 +33,11 @@ export const History = () => {
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
-      });
-  };
+      })
+    }, [userEmail]);
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   return (
     <>

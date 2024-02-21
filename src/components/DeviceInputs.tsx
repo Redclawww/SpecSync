@@ -14,8 +14,6 @@ const url = import.meta.env.VITE_backendURI;
 
 export const DeviceInputs = () => {
   const userEmail = useRecoilValue(userEmailState);
-  console.log("Email ON Home");
-  console.log(userEmail);
   const deviceData1 = useRecoilValue(DeviceOneState);
   const deviceData2 = useRecoilValue(DeviceTwoState);
   const [finalVerdict, setFinalVerdict] = useState("");
@@ -41,12 +39,12 @@ export const DeviceInputs = () => {
       console.log("error:", error);
     }
   }, []);
-
   useEffect(() => {
     getData();
   }, [getData]);
 
-  async function handleSubmit() {
+  async function handleSubmit(e) {
+    e.preventDefault();
     try {
       const res = await axios.post(
         `${url}/compare`,
@@ -80,11 +78,12 @@ export const DeviceInputs = () => {
         finalVerdict: finalVerdict,
       })
       .then((res) => {
-        console.log(res);
+        alert("Saved Successfully");
       })
       .catch((error) => {
         // Handle error
         console.error(error);
+        alert("Server Error");
       });
   }
 
@@ -127,7 +126,7 @@ export const DeviceInputs = () => {
         <div></div>
       ) : (
         <div className="flex gap-32 flex-col items-center ">
-          <div className="flex gap-32 justify-center">
+          <div className="flex gap-32 justify-center flex-wrap">
             <Specifications
               props={deviceData1}
               quickSpec={deviceData1.quickSpec}

@@ -24,7 +24,7 @@ export const Navbar = () => {
       <>
         <div className="absolute flex justify-around text-white text-3xl w-screen pt-4 pb-4 items-center">
           <div className="flex items-center flex-row">
-            <Link to={"/"} className="flex items-center flex-row gap-3">
+            <Link to={"/"} className="flex items-center flex-row gap-3 hover:scale-110 transition-all hover:text-blue-600">
               <img
                 src="https://flowbite.com/docs/images/logo.svg"
                 className="h-8"
@@ -34,12 +34,12 @@ export const Navbar = () => {
             </Link>
           </div>
           <div className=" border border-gray-200 rounded-[25px] flex justify-center gap-5 py-3 px-7 text-lg font-semibold">
-            <Link to={"/about"}>About</Link>
-            <Link to={"/history"}>History</Link>
-            <Link  className="font-bold">
+            <Link to={"/about"} className="hover:scale-110 transition-all hover:text-blue-600">About</Link>
+            <Link to={"/history"} className="hover:scale-110 transition-all hover:text-blue-600">History</Link>          
+              <div className="hover:scale-110 transition-all hover:text-blue-600">
               Hi!! {userEmail}
-            </Link>
-            <button className="" onClick={handleLogout} >logout</button>
+              </div>
+            <button className="hover:scale-110 transition-all hover:text-red-600" onClick={handleLogout} >logout</button>
           </div>
         </div>
       </>
@@ -48,7 +48,7 @@ export const Navbar = () => {
     return (
       <>
         <div className="absolute flex justify-around text-white text-3xl w-screen pt-4 pb-4 ">
-          <Link to={"/"} className="flex justify-center items-center gap-5">
+          <Link to={"/"} className="flex justify-center items-center gap-5 hover:scale-105 transition-all">
             <img
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-8"
@@ -57,9 +57,9 @@ export const Navbar = () => {
             SpecSync
           </Link>
           <div className=" border border-gray-200 rounded-[25px] flex justify-center gap-20 py-3 px-7 text-lg font-semibold">
-            <Link to={"/about"}>About</Link>
+            <Link to={"/about"} className="hover:scale-110 transition-all hover:text-blue-600">About</Link>
             {/* <Link to={"/history"}>History</Link> */}
-            <Link to={"/login"}>Login/Signup</Link>
+            <Link to={"/login"} className="hover:scale-110 transition-all hover:text-blue-600">Login/Signup</Link>
           </div>
         </div>
       </>
