@@ -88,7 +88,8 @@ export const DeviceInputs = () => {
   }
 
   return (
-    <div className="flex gap-20 flex-col items-center pb-10 flex-wrap">
+    <>
+    <div className="flex gap-20 flex-col items-center  flex-wrap">
       <div className="flex gap-20 justify-center flex-wrap">
         <Input1 brandlist={brandlist} />
         <Input2 brandlist={brandlist} />
@@ -149,5 +150,6 @@ export const DeviceInputs = () => {
         </div>
       )}
     </div>
+    </>
   );
 };

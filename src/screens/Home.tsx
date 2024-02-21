@@ -5,6 +5,8 @@ import "../App.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import bgAnimation from "../components/bgAnimation";
+
 
 Aos.init({
   duration: 1000,
@@ -56,18 +58,17 @@ export const Home = () => {
         </div>
       </div>
       <div
-        className="bg-cover bg-center flex flex-col items-center w-screen overscroll-none p-12 justify-start bg-black"
-        
+        className="flex flex-col items-center w-screen overscroll-none p-12 justify-start bg-black css-selector"  
       >
         {/* <div className="wrapper">
           <div className="gradient gradient-1"></div>
           <div className="gradient gradient-2"></div>
           <div className="gradient gradient-3"></div>
         </div> */}
-        <h1 className="text-[6vh] font-semibold text-white flex flex-col text-center p-10 w-full my-20">
-          COMPARE & FIND  <br />the best choice now
+        <h1 className="text-[6vh] font-semibold text-white flex flex-col text-center p-5 w-full my-10">
+          <strong className="text-[10vh] text-[#0886FC]">COMPARE & FIND</strong>  <br />the best choice now
         </h1>
-        <div className="flex gap-20">
+        <div className="flex gap-20 front p-10">
           <DeviceInputs />
         </div>
       </div>
