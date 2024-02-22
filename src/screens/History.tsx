@@ -20,7 +20,7 @@ export const History = () => {
   //     console.error("Error fetching data:", error);
   //   }
   const fetchData = useCallback(async()=>{
-    axios
+    await axios
       .get(`${url}/data/${userEmail}`,{
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -29,7 +29,6 @@ export const History = () => {
       })
       .then((response) => {
         setData(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);

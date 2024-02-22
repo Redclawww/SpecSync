@@ -73,7 +73,7 @@ export const Home = () => {
           <div className="gradient gradient-3"></div>
         </div> */}
         <h1 className="text-[6vh] font-semibold text-white flex flex-col text-center p-5 w-full my-10" >
-          <strong className="text-[10vh] text-[#0886FC]">COMPARE & FIND</strong>  <br />the best choice now
+          <strong className="text-[10vh] text-[#0886FC]">COMPARE & FIND</strong><br />the best choice now
         </h1>
         <div className="flex gap-20 front p-10">
           <DeviceInputs />
