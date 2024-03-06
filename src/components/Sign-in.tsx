@@ -11,7 +11,7 @@ export default function SignInPage() {
       >
         <source src="Videos/video.mp4" type="video/mp4" />
       </video>
-      <SignIn redirectUrl={'/'} />
+      <SignIn redirectUrl={'/'} routing="path" />
     </div>
   );
 }
