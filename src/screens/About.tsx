@@ -1,5 +1,7 @@
 // @ts-nocheck
 // import React from 'react'
+import { Footer } from "../components/Footer";
+import { Navbar } from "../components/Navbar";
 import ip from "/Images/ip.png";
 import vid1 from "/Videos/vid1.mp4";
 import vid2 from "/Videos/vid2.mp4";
@@ -7,6 +9,7 @@ import vid2 from "/Videos/vid2.mp4";
 export const About = () => {
   return (
     <>
+    <Navbar />
       {" "}
       <div className="bg-[#C2C2C4] w-screen">
         <div className="h-screen w-screen bg-cover bg-center">
@@ -62,6 +65,7 @@ export const About = () => {
           </h1>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

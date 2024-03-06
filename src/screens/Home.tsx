@@ -6,6 +6,8 @@ import { useRef } from 'react';
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
 
 Aos.init({
   duration: 1000,
@@ -20,7 +22,9 @@ export const Home = () => {
     });
   };
   return (
+
     <>
+      <Navbar />
       <div className="w-screen h-screen  flex justify-center items-center text-white ">
         <video
           className="h-screen w-screen absolute my-0 top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full max-h-full object-cover -z-10"
@@ -79,6 +83,7 @@ export const Home = () => {
           <DeviceInputs />
         </div>
       </div>
+      <Footer />
     </>
   );
 };
