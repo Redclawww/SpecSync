@@ -35,7 +35,6 @@ export const DeviceInputs = () => {
       const branddata = await res.data;
       setBrandlist(branddata);
     } catch (error) {
-      // alert("Please try again some time later");
       console.log("error:", error);
     }
   }, []);

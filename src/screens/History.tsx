@@ -1,27 +1,20 @@
 // @ts-nocheck
-import { useRecoilValue } from "recoil";
-import { userEmailState } from "../store/selectors/userEmail";
+// import {  useSetRecoilState } from "recoil";
+// import { userEmailState } from "../store/selectors/userEmail";
 import { useCallback, useEffect } from "react";
+import {  useUser } from '@clerk/clerk-react';
 import axios from "axios";
 import { useState } from "react";
+import Email from "next-auth/providers/email";
 const url = import.meta.env.VITE_backendURI;
 
 export const History = () => {
-  const userEmail = useRecoilValue(userEmailState);
+  const { user } = useUser();
   const [data, setData] = useState([]);
-
-  // const fetchCategories = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       `http://localhost:3001/data/${userEmail}`
-  //     );
-  //     setData(response.data);
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //   }
+  const email = user?.primaryEmailAddress?.emailAddress;
   const fetchData = useCallback(async()=>{
     await axios
-      .get(`${url}/data/${userEmail}`,{
+      .get(`${url}/data/${email}`,{
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Content-Type": "application/json",
@@ -33,7 +26,7 @@ export const History = () => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       })
-    }, [userEmail]);
+    }, [email]);
   useEffect(() => {
     fetchData();
   }, [fetchData]);
