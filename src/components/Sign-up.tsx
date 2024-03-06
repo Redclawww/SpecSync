@@ -5,6 +5,6 @@ export default function SignUpPage() {
     <video className="w-screen h-screen object-cover absolute" muted autoPlay loop>
           <source src="Videos/video.mp4" type="video/mp4" />
     </video>
-    <SignUp  redirectUrl={'/'} routing="path"/>
+    <SignUp  redirectUrl={'/'} />
   </div>;
 }
