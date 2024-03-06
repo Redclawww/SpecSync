@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { userEmailState } from "../store/selectors/userEmail";
 import { useSetRecoilState, useRecoilValue } from "recoil";
 import { userState } from "../store/atoms/User";
-import { SignedIn, SignedOut } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 
 export const Navbar = () => {
   const userEmail = useRecoilValue(userEmailState);
@@ -48,16 +48,8 @@ export const Navbar = () => {
               className="hover:scale-110 transition-all hover:text-blue-600"
             >
               History
-            </Link>
-            <div className="hover:scale-110 transition-all hover:text-blue-600">
-              Hi!! {userEmail}
-            </div>
-            <button
-              className="hover:scale-110 transition-all hover:text-red-600"
-              onClick={handleLogout}
-            >
-              logout
-            </button>
+            </Link>           
+            <UserButton afterSignOutUrl='/' />                        
           </SignedIn>
           <SignedOut>
             <Link
