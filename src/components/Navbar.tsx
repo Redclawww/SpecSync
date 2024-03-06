@@ -9,7 +9,7 @@ export const Navbar = () => {
   return (
     <>
       <div className="absolute flex justify-around text-white text-3xl w-screen pt-4 pb-4 items-center">
-        <div className="flex items-center flex-row">
+        <div className="flex items-center flex-row ">
           <Link
             to={"/"}
             className="flex items-center flex-row gap-3 hover:scale-110 transition-all hover:text-blue-600"
@@ -22,7 +22,7 @@ export const Navbar = () => {
             SpecSync
           </Link>
         </div>
-        <div className=" border border-gray-200 rounded-[25px] flex justify-center gap-5 py-3 px-7 text-lg font-semibold">
+        <div className="border border-gray-200 rounded-[25px] flex justify-center gap-10 py-3 px-7 text-lg font-semibold">
           <SignedIn>
             <Link
               to={"/about"}
