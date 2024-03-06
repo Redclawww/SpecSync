@@ -1,6 +1,5 @@
 // @ts-nocheck
 import { DeviceInputs } from "../components/DeviceInputs";
-import bgi from "/Images/bgi.png";
 import "../App.css";
 import { useRef } from 'react';
 import Aos from "aos";

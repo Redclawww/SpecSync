@@ -1,23 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
-import { userEmailState } from "../store/selectors/userEmail";
-import { useSetRecoilState, useRecoilValue } from "recoil";
-import { userState } from "../store/atoms/User";
+import { Link } from "react-router-dom";
 import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 
 export const Navbar = () => {
-  const userEmail = useRecoilValue(userEmailState);
-  const logout = useSetRecoilState(userState);
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    logout({
-      isLoading: true,
-      userEmail: "",
-      name: "",
-    });
-    localStorage.setItem("name", "");
-    localStorage.setItem("email", "");
-    navigate("/");
-  };
+  // const userEmail = useRecoilValue(userEmailState);
+  // const logout = useSetRecoilState(userState);
+  // const navigate = useNavigate();
 
   return (
     <>
