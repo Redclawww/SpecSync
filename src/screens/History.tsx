@@ -5,7 +5,6 @@ import { useCallback, useEffect } from "react";
 import {  useUser } from '@clerk/clerk-react';
 import axios from "axios";
 import { useState } from "react";
-import Email from "next-auth/providers/email";
 const url = import.meta.env.VITE_backendURI;
 
 export const History = () => {
@@ -49,7 +48,7 @@ export const History = () => {
               {/* <div className="border border-gray-200 rounded-lg py-52 w-96 "></div> */}
             
             <div className="Bg-white text-black"></div>
-            {data.map((item, index) => (              
+            {data && data.map((item, index) => (              
                 <div className="border-4 border-[#4936D8] rounded-lg py-52 w-96 transition ease-in-out delay-150 bg-[#4936D8] hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100 flex flex-col" key={index}>
                 <div>First Device: {item.device1}</div>
                 <div>Second Device: {item.device2} </div>
