@@ -1,5 +1,14 @@
 import { Link } from "react-router-dom";
 import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+
 
 export const Navbar = () => {
   // const userEmail = useRecoilValue(userEmailState);
@@ -22,7 +31,55 @@ export const Navbar = () => {
             SpecSync
           </Link>
         </div>
-        <div className="border border-gray-200 rounded-[25px] flex justify-center gap-10 py-3 px-7 text-lg font-semibold">
+        <Sheet>
+  <SheetTrigger><img src="menu.svg" alt="" className='block md:hidden size-[40px] p-1 bg-white rounded-full' /></SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>SpecSync</SheetTitle>
+      <SheetDescription>
+      <div className="border border-gray-200 rounded-[25px] justify-center gap-10 py-3 px-7 text-lg font-semibold flex flex-col">
+          <SignedIn>
+            <Link
+              to={"/about"}
+              className="hover:scale-110 transition-all hover:text-blue-600"
+            >
+              About
+            </Link>
+            <Link
+              to={"/history"}
+              className="hover:scale-110 transition-all hover:text-blue-600"
+            >
+              History
+            </Link>           
+            <UserButton afterSignOutUrl='/' />                        
+          </SignedIn>
+          <SignedOut>
+            <Link
+              to={"/about"}
+              className="hover:scale-110 transition-all hover:text-blue-600"
+            >
+              About
+            </Link>
+            <Link
+              to={"/sign-up"}
+              className="hover:scale-110 transition-all hover:text-blue-600"
+            >
+              Signup
+            </Link>
+            <Link
+              to={"/sign-in"}
+              className="hover:scale-110 transition-all hover:text-blue-600"
+            >
+              Login
+            </Link>
+          </SignedOut>
+          </div>
+      </SheetDescription>
+    </SheetHeader>
+  </SheetContent>
+</Sheet>
+
+        <div className="border border-gray-200 rounded-[25px] justify-center gap-10 py-3 px-7 text-lg font-semibold hidden md:flex">
           <SignedIn>
             <Link
               to={"/about"}
