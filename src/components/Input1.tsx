@@ -85,7 +85,7 @@ export const Input1: React.FC<BrandProps> = (Branditems) => {
         htmlFor="brand1"
         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
       >
-        Brands
+        Brand 1
       </label>
       <select
         onChange={handleOnChange}

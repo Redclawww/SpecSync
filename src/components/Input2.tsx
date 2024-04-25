@@ -78,7 +78,7 @@ export const Input2: React.FC<BrandProps> = ( Branditems ) => {
       htmlFor="countries"
       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
     >
-      Brands
+      Brand 2
     </label>
     <select
       onChange={handleOnChange}

@@ -37,7 +37,7 @@ export const Navbar = () => {
     <SheetHeader>
       <SheetTitle>SpecSync</SheetTitle>
       <SheetDescription>
-      <div className="border border-gray-200 rounded-[25px] justify-center gap-10 py-3 px-7 text-lg font-semibold flex flex-col">
+      <div className="border border-gray-200 rounded-[25px] justify-center gap-10 py-3 px-5 text-lg font-semibold flex flex-col">
           <SignedIn>
             <Link
               to={"/about"}
@@ -93,7 +93,9 @@ export const Navbar = () => {
             >
               History
             </Link>           
-            <UserButton afterSignOutUrl='/' />                        
+            <div className="z-20" >
+            <UserButton afterSignOutUrl='/' />
+            </div>                        
           </SignedIn>
           <SignedOut>
             <Link

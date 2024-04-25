@@ -64,6 +64,8 @@
         setFinalVerdict(AIfeedback);
       } catch (error) {
         alert("Please try again some time later");
+      } finally{
+        
       }
     }
 
