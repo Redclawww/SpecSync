@@ -24,8 +24,11 @@ export const History = () => {
   const email = user?.primaryEmailAddress?.emailAddress;
 
   const fetchData = useCallback(async () => {
+    await new Promise((r) => setTimeout(r, 2000));
     await axios
-      .get(`${url}/data/${email}`, {
+      .post(`${url}/data`,{
+        email: email
+      }, {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Content-Type": "application/json",
