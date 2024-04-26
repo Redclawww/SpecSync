@@ -9,9 +9,9 @@
   import { DeviceOneState } from "../store/atoms/DeviceOne";
   import { DeviceTwoState } from "../store/atoms/DeviceTwo";
   import Save from "../store/icons/Save";
-  import { userEmailState } from "../store/selectors/userEmail";
-  import { useUser } from "@clerk/clerk-react";
+  import ReactMarkdown from 'react-markdown';
   const url = import.meta.env.VITE_backendURI;
+  import { useUser } from "@clerk/clerk-react";
 
   export const DeviceInputs = () => {
     const { user } = useUser();
@@ -161,8 +161,9 @@
               />
             </div>
             <div className="bg-black rounded-2xl border border-gray-400 p-10 text-white w-3/4 ">
+            
               <h1 className="text-3xl text-center pb-14">The Final Verdit 🥳</h1>
-              <p>{finalVerdict}</p>
+              <ReactMarkdown>{finalVerdict}</ReactMarkdown>
             </div>
             <div className="text-white flex mb-15 gap-3 bg-black p-3 rounded-2xl hover:scale-110 ease-in-out transition-all" onClick={handleSave}>
               <div className="">Wanna Save??</div>
