@@ -10,10 +10,12 @@
   import { DeviceTwoState } from "../store/atoms/DeviceTwo";
   import Save from "../store/icons/Save";
   import { userEmailState } from "../store/selectors/userEmail";
+  import { useUser } from "@clerk/clerk-react";
   const url = import.meta.env.VITE_backendURI;
 
   export const DeviceInputs = () => {
-    const userEmail = useRecoilValue(userEmailState);
+    const { user } = useUser();
+    const email = user?.primaryEmailAddress?.emailAddress;
     const deviceData1 = useRecoilValue(DeviceOneState);
     const deviceData2 = useRecoilValue(DeviceTwoState);
     const [finalVerdict, setFinalVerdict] = useState("");
@@ -22,7 +24,7 @@
       { name: "Amazon", id: "hello", devices: "45" },
       { name: "Amazon", id: "why", devices: "45" },
     ]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(null);
 
     const getData = useCallback(async () => {
       try {
@@ -43,8 +45,17 @@
     }, [getData]);
 
     async function handleSubmit(e) {
-      e.preventDefault();
+      e.preventDefault(); 
+      if(deviceData1 === null && deviceData2 === null){
+        alert("Please select devices to compare");
+        return;
+      }
+      if(userInput === ""){
+        alert("Please specify your preference");
+        return;
+      }
       try {
+        setIsLoading(true)
         const res = await axios.post(
           `${url}/compare`,
           {
@@ -60,25 +71,31 @@
           }
         );
         const AIfeedback = await res.data;
-        setIsLoading(true);
         setFinalVerdict(AIfeedback);
       } catch (error) {
         alert("Please try again some time later");
       } finally{
-        
+        setIsLoading(false);
       }
     }
 
-    async function handleSave() {
-      await axios
+    async function handleSave(e) {
+      e.preventDefault();
+      
+      if(email === undefined){
+        alert("Please login to save your data");
+        return;
+      }
+      try {
+        await axios
         .post(`${url}/save`, {
-          email: userEmail,
+          email: email,
           userInput: userInput,
           device1: deviceData1.name,
           device2: deviceData2.name,
           finalVerdict: finalVerdict,
         })
-        .then((res) => {
+        .then(() => {
           alert("Saved Successfully");
         })
         .catch((error) => {
@@ -86,11 +103,14 @@
           console.error(error);
           alert("Server Error");
         });
+      } catch (error) {
+        alert("Please try again some time later",error)
+      }
     }
 
     return (
       <>
-      <div className="flex gap-20 flex-col items-center  flex-wrap">
+      <div className="flex gap-20 flex-col pt-24 items-center flex-wrap mont-regular">
         <div className="flex gap-20 justify-center flex-wrap">
           <Input1 brandlist={brandlist} />
           <Input2 brandlist={brandlist} />
@@ -124,9 +144,11 @@
             </a>
           </div>
         </div>
-        {isLoading === false ? (
-          <div></div>
-        ) : (
+        {
+          isLoading && <img src="spinner.svg" alt="" />
+        }
+        {isLoading === false ? 
+         (
           <div className="flex gap-32 flex-col items-center ">
             <div className="flex gap-32 justify-center flex-wrap">
               <Specifications
@@ -142,14 +164,14 @@
               <h1 className="text-3xl text-center pb-14">The Final Verdit 🥳</h1>
               <p>{finalVerdict}</p>
             </div>
-            <div className="text-white flex mb-15 gap-3 bg-black p-3 rounded-2xl hover:scale-110 ease-in-out transition-all">
+            <div className="text-white flex mb-15 gap-3 bg-black p-3 rounded-2xl hover:scale-110 ease-in-out transition-all" onClick={handleSave}>
               <div className="">Wanna Save??</div>
-              <div className="hover:cursor-pointer" onClick={handleSave}>
+              <div className="hover:cursor-pointer" >
                 <Save />
               </div>
             </div>
           </div>
-        )}
+        ): null}
       </div>
       </>
     );

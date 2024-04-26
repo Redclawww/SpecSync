@@ -1,7 +1,7 @@
 // @ts-nocheck
 const Specifications = ({ props, quickSpec }) => {
   return (
-    <div className="flex flex-col gap-6 text-center">
+    <div className="flex flex-col gap-6 text-center mont-regular">
       <h1 className="text-white text-3xl">{props.name}</h1>
       <img src={props.img} alt="" className="rounded-xl" />
       <div className=" bg-black text-white rounded-3xl">
@@ -13,8 +13,8 @@ const Specifications = ({ props, quickSpec }) => {
           ))}
         </ul>
       </div>
-      <button className=" py-5 bg-black text-white rounded-2xl hover:scale-105 transition-all">
-        <strong className="p-5 rounded-2xl border">
+      <button className=" py-5  bg-black text-white rounded-2xl hover:scale-105 transition-all border-2 ">
+        <strong className="px-10 rounded-2xl  ">
           Show Detailed Specifications
         </strong>
       </button>

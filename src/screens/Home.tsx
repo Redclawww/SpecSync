@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 
+
 Aos.init({
   duration: 1000,
   offset: 100,
@@ -24,7 +25,7 @@ export const Home = () => {
 
     <>
       <Navbar />
-      <div className="w-screen h-screen  flex justify-center items-center text-white ">
+      <div className="w-screen h-screen mont-regular flex justify-center items-center text-white ">
         <video
           className="h-screen w-screen absolute my-0 top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full max-h-full object-cover -z-10"
           alt=""
@@ -34,27 +35,27 @@ export const Home = () => {
           autoPlay
         />
         <img
-          className="absolute top-[20vh] left-[20vh] w-[100px] md:w-[400px] -z-10"
+          className="absolute top-[20vh] left-[20vh] w-[200px] md:w-[400px] -z-10"
           src="https://i.imgur.com/WMG0XWD.png"
           alt=""
           data-aos='fade-right'
         />
         <img
-          className="absolute top-[20vh] right-[20vh] w-[100px] md:w-[400px] -z-10"
+          className="absolute top-[20vh] right-[20vh] w-[200px] md:w-[400px] -z-10"
           src="https://i.imgur.com/SUF8u6g.png"
           alt=""
           data-aos='fade-left'
         />
-        <div className="flex flex-col gap-5 flex-wrap text-center" >
-          <h1 className=" text-[5vh]" data-aos='fade-up'>
-            Compare smartphones with our AI-powered tool <br /> and make the
+        <div className="flex flex-col gap-10 flex-wrap " >
+          <h1 className="text-xl md:text-[40px] text-center mont-bold h-full" data-aos='fade-up'>
+            Compare smartphones with our AI-powered tool     <br /> and make the
             right choice
           </h1>
-          <h2 className="text-[3vh] text-center"  data-aos='fade-up'>
+          <h2 className="text-lg md:text-[3vh] text-center mont-regular"  data-aos='fade-up'>
             Find the perfect smartphone for your needs by comparing features,
             performance, and more
           </h2>
-          <div className="flex justify-center gap-12 flex-wrap "  data-aos='fade-up'>
+          <div className="flex justify-center gap-12 flex-wrap  "  data-aos='fade-up'>
             <button className="border-white border w-fit text-white px-5 py-3 hover:scale-110 transition-all" 
             onClick={scrollToDiv}
             >
@@ -67,7 +68,7 @@ export const Home = () => {
         </div>
       </div>
       <div
-        className="flex flex-col items-center w-screen overscroll-none p-12 justify-start bg-black css-selector" 
+        className="flex flex-col items-center w-screen overscroll-none p-12 justify-start bg-black css-selector mont-regular" 
         ref={myDivRef}  
       >
         {/* <div className="wrapper">
@@ -75,8 +76,8 @@ export const Home = () => {
           <div className="gradient gradient-2"></div>
           <div className="gradient gradient-3"></div>
         </div> */}
-        <h1 className="text-[6vh] font-semibold text-white flex flex-col text-center p-5 w-full my-10" >
-          <strong className="md:text-[10vh] text-lg text-[#0886FC]">COMPARE & FIND</strong><br />the best choice now
+        <h1 className="text-[6vh] font-semibold text-white flex flex-col text-center p-5 w-full my-10 gap-10" >
+          <strong className="md:text-[10vh] text-lg text-[#0886FC]">COMPARE & FIND</strong><br /><span className="md:text-[10vh]  text-2xl">the best choice now</span>
         </h1>   
         <div className="flex gap-20 front md:p-10 ">
           <DeviceInputs />
