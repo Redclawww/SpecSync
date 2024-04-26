@@ -24,8 +24,8 @@ export const Navbar = () => {
             className="flex items-center flex-row gap-3 hover:scale-110 transition-all hover:text-blue-600"
           >
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-8"
+              src="logo.png"
+              className="h-12"
               alt="SpecSync Logo"
             />
             SpecSync
