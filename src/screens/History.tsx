@@ -28,7 +28,7 @@ export const History = () => {
     await axios
       .post(`${url}/data`,{
         email: email
-      }, {
+      },  {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Content-Type": "application/json",
