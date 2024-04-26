@@ -24,7 +24,6 @@ export const History = () => {
   const email = user?.primaryEmailAddress?.emailAddress;
 
   const fetchData = useCallback(async () => {
-    await new Promise((r) => setTimeout(r, 2000));
     await axios
       .post(`${url}/data`,{
         email: email
@@ -36,7 +35,6 @@ export const History = () => {
       })
       .then((response) => {
         setData(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
