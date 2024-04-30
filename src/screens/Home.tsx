@@ -48,9 +48,10 @@ export const Home = () => {
         />
         <div className="flex flex-col gap-10 flex-wrap " >
           <h1 className="text-xl md:text-[40px] text-center mont-bold h-full" data-aos='fade-up'>
-            Compare smartphones with our AI-powered tool     <br /> and make the
-            right choice
+            Compare smartphones with our AI-powered tool 
           </h1>
+          <h1 className="text-xl md:text-[40px] text-center mont-bold h-full" data-aos='fade-up'>and make the
+            right choice</h1>
           <h2 className="text-lg md:text-[3vh] text-center mont-regular"  data-aos='fade-up'>
             Find the perfect smartphone for your needs by comparing features,
             performance, and more
